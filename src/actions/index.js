@@ -1,20 +1,16 @@
+import React, { createContext } from 'react'
+import '../styles/App.css';
+import { UserProfile } from './UserProfile';
 
+export const UserContext = createContext({});
+const App = () => {
 
-export const changeColor=(a)=>{
-   if(a=="red") {return{
-        type:"RED"
-    }}else{
-        return{
-            type:"GREEN"
-        }
-    }
+  return (
+    <UserContext.Provider value={{ name: "Newton", age: 3 }}>
+      <UserProfile />
+    </UserContext.Provider>
+  )
 }
-export const changeStyle=(a)=>{
-    if(a=="Arial") {return{
-         type:"GEORGIA"
-     }}else{
-         return{
-             type:"ARIAL"
-         }
-     }
- }
+
+
+export default App;
