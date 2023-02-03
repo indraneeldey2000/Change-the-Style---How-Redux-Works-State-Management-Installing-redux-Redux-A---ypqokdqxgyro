@@ -1,20 +1,14 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import '../styles/App.css';
-import {useSelector,useDispatch} from "react-redux";
-import {changeColor,changeStyle } from '../actions/index.js';
+import { UserProfile } from './UserProfile';
 
+export const UserContext = createContext({});
 const App = () => {
 
-const dispatch =useDispatch();
-//code here 
-
   return (
-    <div id="main">
-      <h1 id='text' style={{color: colorState, fontFamily: styleState}}>Newton School</h1>
-      <button id='colorBtn' onClick={()=>dispatch(changeColor(colorState))}>Change Color</button>
-      <button id='styleBtn' onClick={()=>dispatch(changeStyle(styleState))}>Change Style</button>
-
-    </div>
+    <UserContext.Provider value={{ name: "Newton", age: 3 }}>
+      <UserProfile />
+    </UserContext.Provider>
   )
 }
 
